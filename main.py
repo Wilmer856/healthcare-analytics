@@ -15,8 +15,8 @@ df = df[cols]
 
 # Add 'Length of Stay' column to gain inisght on hospital efficiency and patient care
 
-df['Length of Stay'] = [str(datetime.date.fromisoformat(df.iloc[i]["Discharge Date"]) -
-                            datetime.date.fromisoformat(df.iloc[i]["Date of Admission"]))[:-9] for i in range(len(df))]
+df['Length of Stay (days)'] = [(datetime.date.fromisoformat(df.iloc[i]["Discharge Date"]) -
+                                datetime.date.fromisoformat(df.iloc[i]["Date of Admission"])).days for i in range(len(df))]
 
 # Add a categorical column that seperates ages by different groups (Adults, Seniors)
 
